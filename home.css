@@ -1,0 +1,39 @@
+:root{
+  --teal:#1b6f7a;
+  --cyan:#2e9ba3;
+  --mint:#a7d8d1;
+  --copper:#8b6b4e;
+  --coal:#2b2a28;
+  --text:#f2f6f4;
+  --muted:#b9c5c0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#050707;color:var(--text);overflow:hidden}
+a{color:inherit;text-decoration:none}
+.home{position:relative;min-height:100vh;display:grid;place-items:center;padding:48px}
+.home-bg{position:absolute;inset:0;background:
+  linear-gradient(90deg,#050707 0%,rgba(5,7,7,.9) 42%,rgba(5,7,7,.45) 100%),
+  radial-gradient(circle at 12% 20%,rgba(46,155,163,.32),transparent 28rem),
+  radial-gradient(circle at 82% 78%,rgba(139,107,78,.24),transparent 30rem),
+  url("assets/proof/evento-hero.jpg") center bottom/auto 152% no-repeat;filter:grayscale(1) contrast(1.05);opacity:.88}
+.home-bg:after{content:"";position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(167,216,209,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(167,216,209,.2) 1px,transparent 1px);background-size:62px 62px}
+.home-shell{position:relative;z-index:1;width:min(1180px,100%);display:grid;grid-template-columns:minmax(0,560px) minmax(320px,1fr);gap:72px;align-items:center}
+.home-copy img{width:240px;margin-bottom:52px}
+.home-copy span{display:block;margin-bottom:18px;color:var(--mint);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.home-copy h1{margin:0;font-size:clamp(3rem,5.8vw,6.2rem);line-height:.95;font-weight:700}
+.home-copy p{max-width:520px;margin:26px 0 0;color:var(--muted);font-size:1.2rem;line-height:1.55}
+.home-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.home-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:10px;background:linear-gradient(135deg,var(--mint),var(--cyan));color:#061110;font-weight:700}
+.home-actions a + a{background:rgba(17,25,24,.78);border:1px solid rgba(167,216,209,.28);color:#fff}
+nav{display:flex;gap:22px;margin-top:28px;color:var(--mint);font-weight:600}
+.home-photo{display:flex;align-items:end;justify-content:center;min-height:720px}
+.home-photo img{max-height:760px;filter:drop-shadow(0 38px 54px rgba(0,0,0,.9));mask-image:linear-gradient(#000 0%,#000 84%,transparent 98%)}
+@media(max-width:900px){
+  body{overflow:auto}
+  .home{padding:34px 18px 0}
+  .home-shell{display:block}
+  .home-copy img{width:190px;margin-bottom:40px}
+  .home-actions{display:grid}
+  .home-photo{min-height:auto;width:min(74vw,360px);margin:34px auto 0}
+}
