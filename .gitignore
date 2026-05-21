@@ -1,0 +1,15 @@
+.DS_Store
+**/.DS_Store
+.env
+.env.*
+!.env.example
+.vercel
+node_modules
+dist
+build
+Fotos/
+_reference-study/
+assets/proof/evento.jpg
+assets/proof/hero-light-ref.jpeg
+assets/proof/videos.png
+assets/palette-b.png
