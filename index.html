@@ -3,33 +3,418 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vagner Mayer | Acervo Institucional</title>
-    <meta name="description" content="Escolha a página de acesso ao Acervo Institucional Vagner Mayer." />
+    <title>Acervo Institucional | Vagner Mayer</title>
+    <meta name="description" content="Acervo Estratégico Vagner Mayer com aulas selecionadas do 3D, 5D e Mapa do Mercado." />
     <link rel="icon" href="Favicon - Branco.png" />
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="home">
-      <div class="home-bg" aria-hidden="true"></div>
-      <section class="home-shell">
-        <div class="home-copy">
-          <img src="ACERVO lOGO Branco.png" alt="Acervo Institucional" />
-          <span>Vagner Mayer</span>
-          <h1>Acervo Institucional</h1>
-          <p>Escolha uma das páginas de acesso ao acervo estratégico.</p>
-          <div class="home-actions">
-            <a href="/acervo-institucional">Acervo institucional</a>
-            <a href="/acervo-estrategico">Acervo estratégico</a>
+    <svg class="icon-defs" aria-hidden="true">
+      <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 19V5h2v11.6l4.2-4.2 3 3L19.6 9H16V7h7v7h-2v-3.6l-7.8 7.8-3-3L6 19H4Z"/></symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 22c-4.8-2-8-6.6-8-11.8V4l8-3 8 3v6.2C20 15.4 16.8 20 12 22Zm0-2.2c3.7-1.8 6-5.4 6-9.6V5.4l-6-2.2-6 2.2v4.8c0 4.2 2.3 7.8 6 9.6Zm-.8-5.3 5-5-1.4-1.4-3.6 3.6-1.8-1.8L8 11.3l3.2 3.2Z"/></symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Zm6.9-9h-3.5a15 15 0 0 1-1.2 5.4A8 8 0 0 0 18.9 13Zm-5.5 0h-2.8c.2 2.7.9 5 1.4 6 .5-1 1.2-3.3 1.4-6Zm-4.8 0H5.1a8 8 0 0 0 4.7 5.4A15 15 0 0 1 8.6 13Zm0-2c.1-2 .6-3.9 1.2-5.4A8 8 0 0 0 5.1 11h3.5Zm4.8 0c-.2-2.7-.9-5-1.4-6-.5 1-1.2 3.3-1.4 6h2.8Zm2 0h3.5a8 8 0 0 0-4.7-5.4c.6 1.5 1.1 3.4 1.2 5.4Z"/></symbol>
+      <symbol id="icon-flow" viewBox="0 0 24 24"><path d="M4 7a3 3 0 1 1 3 3 3 3 0 0 1-3-3Zm10 10a3 3 0 1 1 3 3 3 3 0 0 1-3-3ZM7 8h4.6l2.7 6.1 1.8-.8L12.9 6H7v2Zm1.2 3.4L6.8 10 3 13.8l3.8 3.8 1.4-1.4-1.4-1.4H11v-2H6.8l1.4-1.4Z"/></symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24"><path d="M12 22a10 10 0 1 1 10-10h-2a8 8 0 1 0-8 8v2Zm0-4a6 6 0 1 1 6-6h-2a4 4 0 1 0-4 4v2Zm0-4a2 2 0 1 1 2-2h8v2H12Z"/></symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5Zm0 12 7.6-3.8L22 11.4l-10 5-10-5 2.4-1.2L12 14Zm0 4.4 7.6-3.8 2.4 1.2-10 5-10-5 2.4-1.2 7.6 3.8Z"/></symbol>
+      <symbol id="icon-rate" viewBox="0 0 24 24"><path d="M7 17 17 7l1.4 1.4-10 10L7 17Zm1-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm8 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM8 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></symbol>
+    </svg>
+    <main>
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="shell hero-shell">
+          <div class="hero-copy reveal">
+            <img class="brand" src="ACERVO lOGO Branco.png" alt="Acervo Institucional" />
+            <span class="eyebrow">Acervo estratégico Vagner Mayer</span>
+            <h1>O mercado profissional não<br />opera apenas gráficos.</h1>
+            <div class="hero-market-line" aria-label="O que o mercado precifica">
+              <span>Ele precifica:</span>
+              <i><svg><use href="#icon-flow"></use></svg>liquidez</i>
+              <i><svg><use href="#icon-rate"></use></svg>juros</i>
+              <i><svg><use href="#icon-chart"></use></svg>fluxo</i>
+              <i><svg><use href="#icon-shield"></use></svg>risco global</i>
+            </div>
+            <p class="hero-text">
+              Uma seleção estratégica de aulas construídas ao longo de mais de 5 anos de treinamentos conectando macroeconomia,
+              estruturas de tesouraria, hedge, derivativos, dólar, índice, arbitragem, volatilidade e precificação institucional.
+            </p>
+            <a class="btn primary" href="#oferta">Quero acessar o acervo</a>
           </div>
-          <nav aria-label="Redes sociais">
-            <a href="https://www.youtube.com/@VagnerMayer">YouTube</a>
-            <a href="https://www.instagram.com/vagnermayerb3/">Instagram</a>
-          </nav>
+          <div class="hero-person reveal">
+            <picture>
+              <source media="(max-width: 980px)" srcset="assets/foto-mobile-hero.png?v=202605212330" />
+              <img src="Vagner Mayer 02.png" alt="Vagner Mayer" />
+            </picture>
+          </div>
         </div>
-        <div class="home-photo">
-          <img src="Vagner Mayer 02.png" alt="Vagner Mayer" />
+      </section>
+
+      <section class="covers" aria-label="Cursos inclusos">
+        <div class="shell cover-grid reveal">
+          <img src="Thumbs Cursos/3D.png" alt="3D - As 3 Dimensões do Mercado" />
+          <img src="Thumbs Cursos/Mapa do mercado.png" alt="Mapa do Mercado" />
+          <img src="Thumbs Cursos/5D.png" alt="5D - As 5 Dimensões do Mercado" />
+        </div>
+      </section>
+
+      <section class="section intro">
+        <div class="shell intro-grid">
+          <div class="section-copy reveal">
+            <span class="eyebrow">Leitura profissional</span>
+            <h2>Não existe consistência sem entendimento.</h2>
+            <p>
+              Enquanto grande parte das pessoas tenta encontrar “entradas perfeitas”, o mercado institucional continua operando
+              em cima de matemática financeira, proteção, fluxo global e comportamento macroeconômico.
+            </p>
+            <p>
+              Foi justamente tentando aproximar operadores, investidores e estudiosos dessa lógica que nasceram as estruturas
+              do 3D, 5D e Mapa do Mercado.
+            </p>
+            <p>
+              Agora, parte das aulas mais importantes desses treinamentos foi reorganizada em um único acesso para quem deseja
+              desenvolver uma leitura operacional mais racional, profunda e conectada à dinâmica real dos mercados globais.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="page-tapes" aria-hidden="true">
+        <div class="page-tape tape-top">
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+        </div>
+        <div class="page-tape tape-bottom">
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+          <span>Acervo Institucional by <b>Vagner Mayer</b></span>
+        </div>
+      </div>
+
+      <section class="section problem no-divider">
+        <div class="shell split">
+          <div class="section-copy reveal">
+            <span class="eyebrow">A dor do mercado</span>
+            <h2>O mercado não costuma quebrar pessoas pela falta de vontade.</h2>
+            <p>Costuma quebrar pela falta de estrutura. Muita gente entra no mercado acreditando que precisa apenas de um setup melhor, mas o problema normalmente está muito antes da entrada.</p>
+          </div>
+          <div class="pain-list reveal">
+            <article><i>✓</i><span>Operar sem entender liquidez</span></article>
+            <article><i>✓</i><span>Não compreender proteção institucional</span></article>
+            <article><i>✓</i><span>Ignorar juros e fluxo global</span></article>
+            <article><i>✓</i><span>Depender de indicadores isolados</span></article>
+            <article><i>✓</i><span>Não saber interpretar risco macroeconômico</span></article>
+          </div>
+        </div>
+        <div class="shell result-strip reveal">
+          <span>O resultado?</span>
+          <p>E isso cria operadores emocionalmente dependentes de movimentos curtos, sem qualquer leitura estrutural sobre o que realmente movimenta os ativos.</p>
+          <strong>Anos tentando sobreviver em um mercado que funciona em cima de lógica econômica, matemática financeira e comportamento institucional.</strong>
+        </div>
+      </section>
+
+      <section class="section impact">
+        <div class="shell impact-grid">
+          <div class="impact-list reveal">
+            <article>Grandes tesourarias não operam “achismo”.</article>
+            <article>O mercado profissional trabalha em cima de preço justo.</article>
+            <article>Fluxo e liquidez normalmente antecipam movimentos.</article>
+            <article>Entender risco muda completamente a operação.</article>
+          </div>
+          <a class="btn primary reveal" href="#oferta">Desbloquear acesso à estrutura</a>
+        </div>
+      </section>
+
+      <section class="section courses" id="cursos">
+        <div class="shell">
+          <div class="section-copy center courses-head reveal">
+            <span class="eyebrow">Dentro do acesso</span>
+            <h2>Mais de 50 aulas construídas dentro do mercado. Não em estúdio.</h2>
+          </div>
+
+          <div class="course-stack reveal">
+            <article class="course-item">
+              <div class="course-logo"><img src="3D - Cru.png?v=3" alt="3D - As 3 Dimensões do Mercado" /></div>
+              <div class="course-box">
+                <span><svg><use href="#icon-chart"></use></svg>3D - As 3 Dimensões do Mercado</span>
+                <h3>As 3 dimensões do mercado.</h3>
+                <ul>
+                  <li>Análise gráfica baseada em frequência</li>
+                  <li>Estrutura racional de preço</li>
+                  <li>Conceitos iniciais de liquidez</li>
+                  <li>Tape Reading básico</li>
+                  <li>Introdução macroeconômica</li>
+                </ul>
+              </div>
+            </article>
+            <article class="course-item reverse">
+              <div class="course-logo"><img src="5D - Cru.png?v=3" alt="5D - As 5 Dimensões do Mercado" /></div>
+              <div class="course-box">
+                <span><svg><use href="#icon-layers"></use></svg>5D - As 5 Dimensões do Mercado</span>
+                <h3>As 5 dimensões do mercado.</h3>
+                <ul>
+                  <li>Fundamentos aplicados</li>
+                  <li>Correlação entre ativos</li>
+                  <li>Expansão institucional</li>
+                  <li>Fluxo e comportamento macro</li>
+                  <li>Interpretação estrutural de mercado</li>
+                </ul>
+              </div>
+            </article>
+            <article class="course-item">
+              <div class="course-logo"><img src="Mapa do Mercado - Cru.png?v=3" alt="Mapa do Mercado" /></div>
+              <div class="course-box">
+                <span><svg><use href="#icon-globe"></use></svg>O Mapa do Mercado</span>
+                <h3>Precificação institucional aplicada.</h3>
+                <ul>
+                  <li>Estruturas operacionais</li>
+                  <li>Hedge e derivativos</li>
+                  <li>Cupom cambial</li>
+                  <li>Arbitragem e volatilidade</li>
+                  <li>Dólar e índice futuro</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="course-note reveal">
+            <article>
+              <span>01</span>
+              <p>Aulas gravadas ao vivo, com perguntas, discussões e análises feitas dentro da dinâmica real do mercado.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <p>O foco nunca foi estética. Sempre foi profundidade.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <p>Os fundamentos continuam os mesmos: liquidez, risco, juros, proteção e fluxo institucional.</p>
+            </article>
+            <a class="btn primary" href="#oferta">Quero fazer parte disso</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section logic">
+        <div class="shell split">
+          <div class="section-copy reveal">
+            <span class="eyebrow">O diferencial</span>
+            <h2>Enquanto muitos aprendem indicadores, você desenvolve leitura de mercado.</h2>
+            <p>
+              O mercado raramente se move sozinho. Juros alteram fluxo. Fluxo altera moedas. Moedas alteram inflação.
+              Inflação altera política monetária. E tudo isso impacta diretamente o comportamento dos ativos.
+            </p>
+            <p>Por isso a proposta nunca foi ensinar apenas operações. Foi desenvolver interpretação antes da execução.</p>
+          </div>
+          <div class="logic-pillars reveal">
+            <article>
+              <small>01</small>
+              <strong>Macroeconomia</strong>
+              <span>Juros, inflação, dólar e bancos centrais no centro da leitura.</span>
+            </article>
+            <article>
+              <small>02</small>
+              <strong>Tesouraria e hedge</strong>
+              <span>Proteção, derivativos e fluxo institucional aplicados ao preço.</span>
+            </article>
+            <article>
+              <small>03</small>
+              <strong>Precificação</strong>
+              <span>Valor justo, risco e liquidez antes da tomada de decisão.</span>
+            </article>
+          </div>
+        </div>
+        <div class="shell market-flow reveal" aria-label="Fluxo de raciocínio de mercado">
+          <span><svg><use href="#icon-rate"></use></svg>Juros</span>
+          <i></i>
+          <span><svg><use href="#icon-flow"></use></svg>Fluxo</span>
+          <i></i>
+          <span><svg><use href="#icon-globe"></use></svg>Moedas</span>
+          <i></i>
+          <span><svg><use href="#icon-chart"></use></svg>Inflação</span>
+          <i></i>
+          <span><svg><use href="#icon-target"></use></svg>Política monetária</span>
+        </div>
+        <div class="shell center reveal">
+          <a class="btn primary" href="#oferta">Acessar o acervo completo</a>
+        </div>
+      </section>
+
+      <section class="section mentor">
+        <img class="mentor-bg" src="assets/foto-fundo-mentor.png?v=202605212310" alt="" aria-hidden="true" />
+        <div class="shell split">
+          <div class="mentor-photo reveal">
+            <img src="Vagner Mayer 04.png" alt="Vagner Mayer" />
+          </div>
+          <div class="section-copy reveal">
+            <span class="eyebrow">Vagner Mayer</span>
+            <h2>Mais de 10 anos desenvolvendo operadores e investidores com visão muito além da análise convencional.</h2>
+            <p>
+              Vagner Mayer é especialista em leitura macroeconômica e estruturas operacionais de mercado, com atuação
+              focada em fluxo institucional, derivativos, hedge, arbitragem e precificação de ativos.
+            </p>
+            <p>
+              Há mais de 10 anos desenvolve operadores e investidores através de uma visão conectada entre macroeconomia,
+              liquidez e comportamento do capital global.
+            </p>
+            <p>
+              Sua abordagem conecta matemática financeira, estruturas de tesouraria e dinâmica institucional dentro da lógica
+              utilizada pelos grandes participantes do mercado.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section proof" id="depoimentos">
+        <div class="shell proof-layout">
+          <div class="section-copy reveal">
+            <span class="eyebrow">Prova social</span>
+            <h2>O mercado premia quem entende estrutura. Não apenas execução.</h2>
+            <p>Área para depoimentos em vídeo, prints de alunos, resultados, comentários, campeonato operacional e relatos de evolução.</p>
+            <a class="btn primary" href="#oferta">Quero aprofundar minha leitura de mercado</a>
+          </div>
+          <div class="testimonial-list reveal">
+            <article>
+              <img src="assets/proof/depoimento.png" alt="Depoimento de aluno" />
+              <div>
+                <h3>Relatos de evolução</h3>
+                <p>Espaço visual reservado para prova social, prints, vídeos e comentários dos alunos.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section offer" id="oferta">
+        <div class="shell pricing">
+          <div class="section-copy offer-copy reveal">
+            <span class="eyebrow">Oferta final</span>
+            <h2>Acesso ao Acervo Estratégico Vagner Mayer</h2>
+            <div class="offer-highlights" aria-label="Resumo da oferta">
+              <span><strong>3</strong> estruturas</span>
+              <span><strong>50+</strong> aulas ao vivo</span>
+              <span><strong>6</strong> meses de acesso</span>
+            </div>
+            <p>
+              Uma seleção estratégica das aulas mais importantes construídas ao longo de anos de treinamentos voltados
+              à interpretação profissional de mercado.
+            </p>
+            <div class="offer-note">
+              <p>
+                São aulas reais, discussões ao vivo, perguntas respondidas em tempo real e análises feitas dentro do mercado.
+              </p>
+              <p>
+                Os fundamentos seguem atuais: juros, dólar, liquidez, proteção, derivativos, risco e macroeconomia continuam
+                sendo pilares dos mercados globais.
+              </p>
+            </div>
+          </div>
+          <aside class="checkout reveal">
+            <img src="ACERVO lOGO Branco.png" alt="Acervo Institucional" />
+            <small>Condição especial do acervo</small>
+            <p class="anchor">Treinamentos originais somavam mais de R$5.000.</p>
+            <strong>12x de R$59,70</strong>
+            <span>ou R$597 à vista</span>
+            <a class="btn primary" href="https://www.instagram.com/vagnermayerb3/">Quero acessar o acervo agora</a>
+            <p>Você terá 7 dias completos para acessar a plataforma e assistir às aulas com tranquilidade.</p>
+          </aside>
+          <div class="included-panel reveal">
+            <span class="eyebrow">O que você recebe</span>
+            <div class="included-grid">
+              <article><svg><use href="#icon-layers"></use></svg><strong>Treinamentos</strong><p>3D, 5D e Mapa do Mercado com aulas selecionadas.</p></article>
+              <article><svg><use href="#icon-chart"></use></svg><strong>Biblioteca</strong><p>Mais de 50 aulas ao vivo com acesso por 6 meses.</p></article>
+              <article><svg><use href="#icon-globe"></use></svg><strong>Plataforma</strong><p>Plataforma Vagner Mayer, conteúdos em primeira mão e atualizações.</p></article>
+              <article><svg><use href="#icon-shield"></use></svg><strong>Acompanhamento</strong><p>Comunidades WhatsApp e Telegram com suporte direto de Vagner e equipe.</p></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section guarantee">
+        <div class="shell guarantee-layout">
+          <img class="guarantee-seal reveal" src="assets/selo-garantia-incondicional-7-dias.png" alt="Garantia incondicional de 7 dias ou seu dinheiro de volta" />
+          <div class="guarantee-copy reveal">
+            <span class="eyebrow">Garantia</span>
+            <h2>Teste o acervo com tranquilidade.</h2>
+            <p class="lead">Você terá 7 dias para acessar a plataforma e assistir às aulas.</p>
+            <p>
+              Se perceber que essa estrutura não faz sentido para você<br />poderá cancelar sem precisar justificar nada.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section closing">
+        <div class="shell closing-copy reveal">
+          <span class="eyebrow">Fechamento final</span>
+          <h2>O mercado continuará sendo movido por juros, inflação, liquidez, fluxo global, geopolítica, derivativos e comportamento institucional.</h2>
+          <p>
+            A única diferença é que algumas pessoas continuarão tentando operar apenas movimentos. Enquanto outras finalmente
+            começarão a entender as estruturas que realmente movimentam o mercado.
+          </p>
+          <a class="btn primary" href="#oferta">Quero acessar o acervo agora</a>
+        </div>
+      </section>
+
+      <section class="section support" id="duvidas">
+        <div class="shell support-grid">
+          <div class="support-copy reveal">
+            <h2>Ficou com alguma dúvida?</h2>
+            <p>Confira as respostas mais frequentes ou fale com a equipe para entender se o acervo faz sentido para o seu momento.</p>
+            <a class="contact-card" href="https://www.instagram.com/vagnermayerb3/">
+              <img src="assets/instagram.png" alt="" />
+              <span><strong>Instagram</strong>@vagnermayerb3</span>
+            </a>
+            <a class="contact-card" href="mailto:contato@vagnermayer.com.br">
+              <img src="assets/e-mail.png" alt="" />
+              <span><strong>E-mail</strong>contato@vagnermayer.com.br</span>
+            </a>
+            <a class="contact-card" href="https://www.instagram.com/vagnermayerb3/">
+              <img src="assets/whatsapp.png" alt="" />
+              <span><strong>WhatsApp</strong>Fale com a equipe comercial.</span>
+            </a>
+          </div>
+          <div class="faq reveal">
+            <details open>
+              <summary>Para quem é o Acervo Institucional?</summary>
+              <p>Para quem deseja desenvolver uma leitura operacional mais racional, profunda e conectada à dinâmica real dos mercados globais.</p>
+            </details>
+            <details>
+              <summary>Quais cursos fazem parte do acesso?</summary>
+              <p>3D, 5D e Mapa do Mercado, com aulas selecionadas e organizadas para revisão.</p>
+            </details>
+            <details>
+              <summary>Por quanto tempo tenho acesso?</summary>
+              <p>O acesso ao acervo é de 6 meses.</p>
+            </details>
+            <details>
+              <summary>Como recebo os dados de acesso?</summary>
+              <p>Após a confirmação, a equipe orienta o acesso aos materiais e comunidades.</p>
+            </details>
+          </div>
+          <a class="btn primary support-cta" href="#oferta">Quero garantir meu acesso</a>
         </div>
       </section>
     </main>
+
+    <footer>
+      <img src="ACERVO lOGO Branco.png" alt="Acervo Institucional" />
+      <p>Copyright © 2026 Acervo Institucional. Feito com ♥ por <a href="https://oformi.com.br/">Formi</a>.</p>
+      <div class="socials">
+        <a href="https://www.youtube.com/@VagnerMayer" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.9 3 3 0 0 0 3.1 19C5 19.5 12 19.5 12 19.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.9 31 31 0 0 0-.5-4.9ZM9.7 15.2V8.8l6 3.2-6 3.2Z"/></svg></a>
+        <a href="https://www.instagram.com/vagnermayerb3/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm9.9 1.7a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7.3a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4Zm0 2a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4Z"/></svg></a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
