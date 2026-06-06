@@ -284,25 +284,25 @@
           </div>
           <div class="video-testimonials reveal" aria-label="Depoimentos em vídeo">
             <div class="video-stage">
-              <article class="video-card is-active">
+              <article class="video-card video-wide is-active">
               <video controls preload="metadata" playsinline>
                 <source src="assets/proof/videos/depoimento-03.mp4" type="video/mp4" />
               </video>
             </article>
-              <article class="video-card is-next">
+              <article class="video-card video-vertical is-next">
               <video controls preload="metadata" playsinline>
                 <source src="assets/proof/videos/depoimento-02.mp4" type="video/mp4" />
               </video>
             </article>
-              <article class="video-card is-prev">
+              <article class="video-card video-standard is-prev">
               <video controls preload="metadata" playsinline>
                 <source src="assets/proof/videos/depoimento-01.mp4" type="video/mp4" />
               </video>
             </article>
             </div>
             <div class="video-nav">
-              <button type="button" class="video-arrow" data-video-prev aria-label="Depoimento anterior">‹</button>
-              <button type="button" class="video-arrow" data-video-next aria-label="Próximo depoimento">›</button>
+              <button type="button" class="video-arrow" data-video-prev onclick="moveVideoTestimonial(this, -1)" aria-label="Depoimento anterior">‹</button>
+              <button type="button" class="video-arrow" data-video-next onclick="moveVideoTestimonial(this, 1)" aria-label="Próximo depoimento">›</button>
             </div>
           </div>
         </div>
@@ -429,6 +429,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=202606061616"></script>
   </body>
 </html>
