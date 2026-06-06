@@ -282,22 +282,28 @@
             <p>Depoimentos reais de alunos e participantes que desenvolveram uma leitura mais estrutural de mercado a partir das aulas.</p>
             <a class="btn primary" href="#oferta">Quero aprofundar minha leitura de mercado</a>
           </div>
-          <div class="video-testimonials reveal">
-            <article class="video-card featured">
+          <div class="video-testimonials reveal" aria-label="Depoimentos em vídeo">
+            <div class="video-stage">
+              <article class="video-card is-active">
               <video controls preload="metadata" playsinline>
                 <source src="assets/proof/videos/depoimento-03.mp4" type="video/mp4" />
               </video>
             </article>
-            <article class="video-card">
+              <article class="video-card is-next">
               <video controls preload="metadata" playsinline>
                 <source src="assets/proof/videos/depoimento-02.mp4" type="video/mp4" />
               </video>
             </article>
-            <article class="video-card">
+              <article class="video-card is-prev">
               <video controls preload="metadata" playsinline>
                 <source src="assets/proof/videos/depoimento-01.mp4" type="video/mp4" />
               </video>
             </article>
+            </div>
+            <div class="video-nav">
+              <button type="button" class="video-arrow" data-video-prev aria-label="Depoimento anterior">‹</button>
+              <button type="button" class="video-arrow" data-video-next aria-label="Próximo depoimento">›</button>
+            </div>
           </div>
         </div>
       </section>

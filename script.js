@@ -33,3 +33,31 @@ function requestTapeUpdate() {
 window.addEventListener("scroll", requestTapeUpdate, { passive: true });
 window.addEventListener("resize", requestTapeUpdate);
 requestTapeUpdate();
+
+document.querySelectorAll(".video-testimonials").forEach(carousel => {
+  const cards = Array.from(carousel.querySelectorAll(".video-card"));
+  const prevButton = carousel.querySelector("[data-video-prev]");
+  const nextButton = carousel.querySelector("[data-video-next]");
+  let activeIndex = cards.findIndex(card => card.classList.contains("is-active"));
+  if (activeIndex < 0) activeIndex = 0;
+
+  function renderVideoCards() {
+    cards.forEach((card, index) => {
+      const video = card.querySelector("video");
+      if (video && index !== activeIndex) video.pause();
+      card.classList.remove("is-active", "is-prev", "is-next");
+      if (index === activeIndex) card.classList.add("is-active");
+      if (index === (activeIndex + 1) % cards.length) card.classList.add("is-next");
+      if (index === (activeIndex - 1 + cards.length) % cards.length) card.classList.add("is-prev");
+    });
+  }
+
+  function moveVideoCards(direction) {
+    activeIndex = (activeIndex + direction + cards.length) % cards.length;
+    renderVideoCards();
+  }
+
+  prevButton?.addEventListener("click", () => moveVideoCards(-1));
+  nextButton?.addEventListener("click", () => moveVideoCards(1));
+  renderVideoCards();
+});
