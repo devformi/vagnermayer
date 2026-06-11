@@ -12,6 +12,7 @@
       const activePlayer = players.get(frame);
 
       frame.classList.add("is-sound-enabled");
+      frame.classList.remove("is-playing-muted");
 
       if (!activePlayer) {
         pendingSound.add(frame);
@@ -44,6 +45,13 @@
             }
 
             event.target.playVideo();
+          },
+          onStateChange(event) {
+            const isPlaying = event.data === YT.PlayerState.PLAYING;
+
+            if (isPlaying && !frame.classList.contains("is-sound-enabled")) {
+              frame.classList.add("is-playing-muted");
+            }
           },
         },
       });
