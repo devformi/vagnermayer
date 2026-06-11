@@ -68,23 +68,112 @@
           <h2>Faça sua pré-inscrição</h2>
           <strong>E garanta prioridade de acesso.</strong>
           <p>Deixe seus dados e seja avisado em primeira mão quando o Acervo Institucional for lançado.</p>
-          <form>
+          <form id="prelaunch-form">
             <label>
               <span>Nome</span>
-              <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" />
+              <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required />
             </label>
             <label>
               <span>WhatsApp</span>
-              <input type="tel" name="whatsapp" placeholder="Seu WhatsApp" autocomplete="tel" />
+              <input type="tel" name="whatsapp" placeholder="Seu WhatsApp" autocomplete="tel" inputmode="tel" maxlength="15" required />
             </label>
             <label>
               <span>E-mail</span>
-              <input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" />
+              <input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required />
             </label>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             <button type="submit">Quero prioridade de acesso <i>→</i></button>
           </form>
         </section>
       </section>
     </main>
+    <div class="lead-modal" id="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" hidden>
+      <div class="lead-modal__panel">
+        <span class="lead-modal__status">Pré-cadastro confirmado</span>
+        <h2 id="lead-modal-title">Você será avisado primeiro.</h2>
+        <p>
+          Enquanto isso, siga o Vagner no Instagram para acompanhar os próximos avisos do Acervo Institucional.
+        </p>
+        <strong>Redirecionando em <span id="redirect-count">10</span>s</strong>
+        <a href="https://www.instagram.com/vagnermayerb3/" rel="noopener">Seguir no Instagram agora</a>
+      </div>
+    </div>
+    <script>
+      const form = document.querySelector("#prelaunch-form");
+      const whatsappInput = document.querySelector('input[name="whatsapp"]');
+      const modal = document.querySelector("#lead-modal");
+      const redirectCount = document.querySelector("#redirect-count");
+      const formStatus = document.querySelector("#form-status");
+      const instagramUrl = "https://www.instagram.com/vagnermayerb3/";
+
+      whatsappInput?.addEventListener("input", () => {
+        const digits = whatsappInput.value.replace(/\D/g, "").slice(0, 11);
+        const area = digits.slice(0, 2);
+        const first = digits.length > 10 ? digits.slice(2, 7) : digits.slice(2, 6);
+        const second = digits.length > 10 ? digits.slice(7, 11) : digits.slice(6, 10);
+
+        let value = area ? `(${area}` : "";
+        if (area.length === 2) value += ") ";
+        if (first) value += first;
+        if (second) value += `-${second}`;
+
+        whatsappInput.value = value;
+      });
+
+      const showConfirmation = () => {
+        let seconds = 10;
+        modal.hidden = false;
+        redirectCount.textContent = seconds;
+
+        const timer = window.setInterval(() => {
+          seconds -= 1;
+          redirectCount.textContent = seconds;
+
+          if (seconds <= 0) {
+            window.clearInterval(timer);
+            window.location.href = instagramUrl;
+          }
+        }, 1000);
+      };
+
+      form?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const formData = new FormData(form);
+        const payload = {
+          nome: String(formData.get("nome") || "").trim(),
+          whatsapp: String(formData.get("whatsapp") || "").trim(),
+          email: String(formData.get("email") || "").trim(),
+          origem: "pre-cadastro",
+          pagina: window.location.href,
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
+        formStatus.textContent = "Enviando seu pré-cadastro...";
+        formStatus.dataset.state = "loading";
+
+        try {
+          const response = await fetch("/api/leads", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) throw new Error("Lead request failed");
+
+          form.reset();
+          formStatus.textContent = "";
+          formStatus.dataset.state = "";
+          showConfirmation();
+        } catch (error) {
+          submitButton.disabled = false;
+          submitButton.innerHTML = "Tentar novamente <i>→</i>";
+          formStatus.textContent = "Não foi possível concluir seu pré-cadastro agora. Tente novamente em instantes.";
+          formStatus.dataset.state = "error";
+        }
+      });
+    </script>
   </body>
 </html>
