@@ -6,7 +6,7 @@
     <title>Acervo Institucional | VSL</title>
     <meta name="description" content="Assista à VSL do Acervo Institucional Vagner Mayer e acesse aulas selecionadas do 3D, 5D e Mapa do Mercado." />
     <link rel="icon" href="Favicon - Branco.png" />
-    <link rel="stylesheet" href="styles-vsl.css?v=202606111945" />
+    <link rel="stylesheet" href="styles-vsl.css?v=202606112030" />
   </head>
   <body>
     <main class="vsl-page">
@@ -20,13 +20,18 @@
             reunida para aprofundar sua leitura de macroeconomia, fluxo, risco, liquidez e precificação.
           </p>
 
-          <div class="video-frame">
+          <div class="video-frame video-frame--sound-gate">
             <iframe
-              src="https://www.youtube.com/embed/n6oGFUCOGOc?rel=0&modestbranding=1"
+              class="vsl-video"
+              src="https://www.youtube.com/embed/n6oGFUCOGOc?rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1&enablejsapi=1"
               title="VSL Acervo Institucional"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen>
             </iframe>
+            <button class="sound-gate" type="button" aria-label="Ativar som do vídeo">
+              <span>Toque para ativar o som</span>
+              <strong>O vídeo já começou</strong>
+            </button>
           </div>
 
           <a class="btn primary" href="https://pay.hotmart.com/N106233144K">Quero acessar o acervo agora</a>
@@ -95,5 +100,6 @@
         </div>
       </section>
     </main>
+    <script src="vsl-video.js?v=202606112030"></script>
   </body>
 </html>
