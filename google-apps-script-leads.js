@@ -1,4 +1,5 @@
 const SHEET_NAME = "Leads";
+const SPREADSHEET_ID = "1bJGMfv3bmo8yoyBqWkmxHSbqJld0Qq5RFHmK6gIwcQA";
 
 function doPost(event) {
   const sheet = getLeadsSheet_();
@@ -19,7 +20,7 @@ function doPost(event) {
 }
 
 function getLeadsSheet_() {
-  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
   let sheet = spreadsheet.getSheetByName(SHEET_NAME);
 
   if (!sheet) {
