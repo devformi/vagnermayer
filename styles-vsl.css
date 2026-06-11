@@ -37,8 +37,12 @@ h1{max-width:900px;margin:0 auto;color:#fff;font-size:clamp(2.2rem,4.4vw,4.55rem
 .sound-gate span,.sound-gate strong{display:block;color:#fff;font-weight:700;line-height:1.12;letter-spacing:0}
 .sound-gate span{font-size:clamp(1.1rem,2vw,1.55rem)}
 .sound-gate strong{font-size:clamp(1rem,1.8vw,1.35rem)}
-.video-frame.is-playing-muted:not(.is-sound-enabled) .sound-gate{opacity:1;visibility:visible;pointer-events:auto}
-.video-frame.is-playing-muted:not(.is-sound-enabled) .sound-gate:hover{transform:translate(-50%,-50%) rotate(-2deg) scale(1.02)}
+.video-frame.is-playing-muted:not(.is-sound-enabled) .sound-gate{opacity:1;visibility:visible;pointer-events:auto;animation:soundGatePulse 1.8s ease-in-out infinite}
+.video-frame.is-playing-muted:not(.is-sound-enabled) .sound-gate:hover{animation-play-state:paused;transform:translate(-50%,-50%) rotate(-2deg) scale(1.04)}
+@keyframes soundGatePulse{
+  0%,100%{transform:translate(-50%,-50%) rotate(-2deg) scale(1)}
+  50%{transform:translate(-50%,-50%) rotate(1.5deg) scale(1.045)}
+}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 30px;border-radius:var(--radius);font-size:1rem;font-weight:700;transition:transform .22s ease,box-shadow .22s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#080807;box-shadow:0 18px 48px rgba(213,178,101,.18)}
