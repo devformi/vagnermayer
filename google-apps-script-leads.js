@@ -4,8 +4,8 @@ const SPREADSHEET_ID = "1bJGMfv3bmo8yoyBqWkmxHSbqJld0Qq5RFHmK6gIwcQA";
 function doPost(event) {
   const sheet = getLeadsSheet_();
   const data = JSON.parse(event.postData.contents || "{}");
-
-  sheet.appendRow([
+  const nextRow = sheet.getLastRow() + 1;
+  const row = [
     data.data || new Date().toISOString(),
     data.nome || "",
     data.whatsapp || "",
@@ -13,7 +13,10 @@ function doPost(event) {
     data.email || "",
     data.origem || "",
     data.pagina || "",
-  ]);
+  ];
+
+  sheet.getRange(nextRow, 3).setNumberFormat("@");
+  sheet.getRange(nextRow, 1, 1, row.length).setValues([row]);
 
   return ContentService
     .createTextOutput(JSON.stringify({ ok: true }))
@@ -40,14 +43,18 @@ function getLeadsSheet_() {
 function ensureCountryColumn_(sheet) {
   const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
 
-  if (headers.indexOf("País") !== -1) {
-    return;
+  const whatsappColumn = headers.indexOf("WhatsApp") + 1;
+  const countryColumn = headers.indexOf("País") + 1;
+  const insertAfter = whatsappColumn || 3;
+
+  if (!countryColumn) {
+    sheet.insertColumnAfter(insertAfter);
+    sheet.getRange(1, insertAfter + 1).setValue("País");
   }
 
-  const whatsappColumn = headers.indexOf("WhatsApp") + 1;
-  const insertAfter = whatsappColumn || 3;
-  sheet.insertColumnAfter(insertAfter);
-  sheet.getRange(1, insertAfter + 1).setValue("País");
+  if (whatsappColumn) {
+    sheet.getRange(2, whatsappColumn, Math.max(sheet.getMaxRows() - 1, 1), 1).setNumberFormat("@");
+  }
 }
 
 function normalizarPaisBrasilExistentes() {
@@ -62,7 +69,7 @@ function normalizarPaisBrasilExistentes() {
 
   sheet
     .getRange(2, countryColumn, sheet.getLastRow() - 1, 1)
-    .setValue("🇧🇷 Brasil +55");
+    .setValue("🇧🇷 Brasil");
 
   if (!whatsappColumn) {
     return;
@@ -72,7 +79,7 @@ function normalizarPaisBrasilExistentes() {
   const phones = phoneRange.getValues().map(([phone]) => {
     const raw = String(phone || "").trim();
 
-    if (!raw || raw.startsWith("+")) {
+    if (!raw) {
       return [raw];
     }
 
@@ -82,8 +89,13 @@ function normalizarPaisBrasilExistentes() {
       return [raw];
     }
 
-    return [digits.startsWith("55") ? `+${digits}` : `+55 ${raw}`];
+    if (raw.startsWith("+")) {
+      return [raw.replace(/^\+/, "")];
+    }
+
+    return [digits.startsWith("55") ? digits : `55 ${raw}`];
   });
 
+  phoneRange.setNumberFormat("@");
   phoneRange.setValues(phones);
 }

@@ -1,5 +1,7 @@
 const required = ["nome", "whatsapp", "email"];
 
+const normalizePhoneForSheet = (value) => String(value || "").trim().replace(/^\+/, "");
+
 module.exports = async function handler(request, response) {
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
@@ -30,7 +32,7 @@ module.exports = async function handler(request, response) {
   const payload = {
     data: new Date().toISOString(),
     nome: String(lead.nome).trim(),
-    whatsapp: String(lead.whatsapp).trim(),
+    whatsapp: normalizePhoneForSheet(lead.whatsapp),
     pais: String(lead.pais || "").trim(),
     email: String(lead.email).trim(),
     origem: String(lead.origem || "pre-cadastro").trim(),
