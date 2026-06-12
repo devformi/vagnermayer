@@ -31,6 +31,7 @@ module.exports = async function handler(request, response) {
     data: new Date().toISOString(),
     nome: String(lead.nome).trim(),
     whatsapp: String(lead.whatsapp).trim(),
+    pais: String(lead.pais || "").trim(),
     email: String(lead.email).trim(),
     origem: String(lead.origem || "pre-cadastro").trim(),
     pagina: String(lead.pagina || "").trim(),
