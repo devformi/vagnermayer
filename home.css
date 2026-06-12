@@ -129,12 +129,30 @@ h1{max-width:600px;font-size:clamp(2.55rem,4.15vw,4.25rem);line-height:1.03;font
 .signup-panel > strong{font-size:clamp(1rem,1.35vw,1.25rem)}
 .signup-panel > p{margin:14px auto 22px;font-size:1rem}
 form{gap:12px;max-width:780px}
-input{height:58px;font-size:1rem}
+input,select{height:58px;font-size:1rem}
+select{
+  width:100%;
+  padding:0 16px;
+  border:1px solid rgba(240,217,156,.24);
+  border-radius:var(--radius);
+  appearance:none;
+  background:
+    linear-gradient(45deg,transparent 50%,rgba(240,217,156,.9) 50%) calc(100% - 18px) 24px/7px 7px no-repeat,
+    linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
+  color:#fff;
+  font-family:inherit;
+  outline:none;
+}
+select:focus{border-color:rgba(240,217,156,.55);box-shadow:0 0 0 3px rgba(240,217,156,.12)}
+select option{background:#11100e;color:#fff}
+.phone-row{display:grid;grid-template-columns:minmax(132px,160px) minmax(0,1fr);gap:12px}
+.country-field,.phone-field{min-width:0}
 .privacy-note{display:block;max-width:680px;margin:2px auto 0;color:rgba(241,234,223,.68);font-size:.82rem;line-height:1.45;text-align:center}
 .prelaunch-footer{grid-area:footer;margin-top:20px;color:rgba(241,234,223,.72);font-size:.92rem;line-height:1.45;text-align:center}
 .prelaunch-footer p{margin:0}
 .prelaunch-footer a{color:var(--gold2);font-weight:600;text-decoration:none}
 .prelaunch-footer a:hover{text-decoration:underline}
+.footer-mobile-break{display:none}
 .form-status{min-height:22px;margin:0;color:var(--gold2);font-size:.94rem;line-height:1.35;text-align:left}
 .form-status:empty{display:none}
 .form-status[data-state="error"]{color:#ffb4a8}
@@ -156,7 +174,10 @@ button:disabled{cursor:wait;opacity:.78;transform:none}
   .prelaunch-person img{width:min(92vw,430px);transform:translateX(12px)}
   .feature-panel{margin-top:18px}
   .signup-panel{padding:28px 18px}
+  .phone-row{grid-template-columns:minmax(102px,118px) minmax(0,1fr);gap:8px}
+  select{padding:0 26px 0 10px;font-size:.92rem;background-position:calc(100% - 13px) 24px,0 0}
   .prelaunch-footer{margin-top:24px}
+  .footer-mobile-break{display:block}
   .lead-modal__panel{padding:34px 24px}
   .lead-modal h2{font-size:1.65rem}
 }

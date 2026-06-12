@@ -88,10 +88,28 @@
               <span>Nome</span>
               <input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required />
             </label>
-            <label>
-              <span>WhatsApp</span>
-              <input type="tel" name="whatsapp" placeholder="Seu WhatsApp" autocomplete="tel" inputmode="tel" maxlength="15" required />
-            </label>
+            <div class="phone-row">
+              <label class="country-field">
+                <span>País</span>
+                <select name="pais" autocomplete="country" aria-label="País do WhatsApp">
+                  <option value="BR" selected>BR +55</option>
+                  <option value="US">US +1</option>
+                  <option value="PT">PT +351</option>
+                  <option value="ES">ES +34</option>
+                  <option value="AR">AR +54</option>
+                  <option value="UY">UY +598</option>
+                  <option value="PY">PY +595</option>
+                  <option value="CL">CL +56</option>
+                  <option value="CO">CO +57</option>
+                  <option value="MX">MX +52</option>
+                  <option value="OTHER">Outro</option>
+                </select>
+              </label>
+              <label class="phone-field">
+                <span>WhatsApp</span>
+                <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel-national" inputmode="tel" maxlength="20" required />
+              </label>
+            </div>
             <label>
               <span>E-mail</span>
               <input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required />
@@ -105,7 +123,7 @@
           </form>
         </section>
         <footer class="prelaunch-footer">
-          <p>Copyright © 2026 Acervo Institucional. Feito com ♥ por <a href="https://oformi.com.br/">Formi</a>.</p>
+          <p>Copyright © 2026 Acervo Institucional. <br class="footer-mobile-break" /><span>Feito com ♥ por <a href="https://oformi.com.br/">Formi</a>.</span></p>
         </footer>
       </section>
     </main>
@@ -123,24 +141,90 @@
     <script>
       const form = document.querySelector("#prelaunch-form");
       const whatsappInput = document.querySelector('input[name="whatsapp"]');
+      const countrySelect = document.querySelector('select[name="pais"]');
       const modal = document.querySelector("#lead-modal");
       const redirectCount = document.querySelector("#redirect-count");
       const formStatus = document.querySelector("#form-status");
       const instagramUrl = "https://www.instagram.com/vagnermayerb3/";
 
-      whatsappInput?.addEventListener("input", () => {
-        const digits = whatsappInput.value.replace(/\D/g, "").slice(0, 11);
-        const area = digits.slice(0, 2);
-        const first = digits.length > 10 ? digits.slice(2, 7) : digits.slice(2, 6);
-        const second = digits.length > 10 ? digits.slice(7, 11) : digits.slice(6, 10);
+      const phoneMasks = {
+        BR: {
+          ddi: "+55",
+          max: 11,
+          placeholder: "(11) 99999-9999",
+          format: (digits) => {
+            const area = digits.slice(0, 2);
+            const first = digits.length > 10 ? digits.slice(2, 7) : digits.slice(2, 6);
+            const second = digits.length > 10 ? digits.slice(7, 11) : digits.slice(6, 10);
+            let value = area ? `(${area}` : "";
+            if (area.length === 2) value += ") ";
+            if (first) value += first;
+            if (second) value += `-${second}`;
+            return value;
+          },
+        },
+        US: {
+          ddi: "+1",
+          max: 10,
+          placeholder: "(555) 555-5555",
+          format: (digits) => {
+            const area = digits.slice(0, 3);
+            const first = digits.slice(3, 6);
+            const second = digits.slice(6, 10);
+            let value = area ? `(${area}` : "";
+            if (area.length === 3) value += ") ";
+            if (first) value += first;
+            if (second) value += `-${second}`;
+            return value;
+          },
+        },
+        PT: { ddi: "+351", max: 9, placeholder: "912 345 678", group: [3, 3, 3] },
+        ES: { ddi: "+34", max: 9, placeholder: "612 345 678", group: [3, 3, 3] },
+        AR: { ddi: "+54", max: 10, placeholder: "11 1234-5678", group: [2, 4, 4] },
+        UY: { ddi: "+598", max: 8, placeholder: "99 123 456", group: [2, 3, 3] },
+        PY: { ddi: "+595", max: 9, placeholder: "981 123 456", group: [3, 3, 3] },
+        CL: { ddi: "+56", max: 9, placeholder: "9 1234 5678", group: [1, 4, 4] },
+        CO: { ddi: "+57", max: 10, placeholder: "300 123 4567", group: [3, 3, 4] },
+        MX: { ddi: "+52", max: 10, placeholder: "55 1234 5678", group: [2, 4, 4] },
+        OTHER: { ddi: "+", max: 15, placeholder: "Seu telefone internacional", group: [3, 3, 3, 3, 3] },
+      };
 
-        let value = area ? `(${area}` : "";
-        if (area.length === 2) value += ") ";
-        if (first) value += first;
-        if (second) value += `-${second}`;
+      const groupPhone = (digits, groups) => {
+        let cursor = 0;
+        return groups
+          .map((size) => {
+            const chunk = digits.slice(cursor, cursor + size);
+            cursor += size;
+            return chunk;
+          })
+          .filter(Boolean)
+          .join(" ");
+      };
 
-        whatsappInput.value = value;
+      const getPhoneConfig = () => phoneMasks[countrySelect?.value || "BR"] || phoneMasks.BR;
+
+      const applyPhoneMask = () => {
+        if (!whatsappInput) return;
+        const config = getPhoneConfig();
+        const digits = whatsappInput.value.replace(/\D/g, "").slice(0, config.max);
+        whatsappInput.placeholder = config.placeholder;
+        whatsappInput.value = config.format ? config.format(digits) : groupPhone(digits, config.group);
+      };
+
+      const getPhoneWithDdi = () => {
+        const config = getPhoneConfig();
+        const localPhone = whatsappInput.value.trim();
+        const digits = localPhone.replace(/\D/g, "");
+        if (!digits) return "";
+        return config.ddi === "+" ? `+${digits}` : `${config.ddi} ${localPhone}`;
+      };
+
+      whatsappInput?.addEventListener("input", applyPhoneMask);
+      countrySelect?.addEventListener("change", () => {
+        whatsappInput.value = "";
+        applyPhoneMask();
       });
+      applyPhoneMask();
 
       const showConfirmation = () => {
         let seconds = 10;
@@ -165,7 +249,7 @@
         const formData = new FormData(form);
         const payload = {
           nome: String(formData.get("nome") || "").trim(),
-          whatsapp: String(formData.get("whatsapp") || "").trim(),
+          whatsapp: getPhoneWithDdi(),
           email: String(formData.get("email") || "").trim(),
           origem: "pre-cadastro",
           pagina: window.location.href,
