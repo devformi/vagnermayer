@@ -43,7 +43,8 @@ body:after{
   mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.45) 18%,transparent 44%,transparent 56%,rgba(0,0,0,.45) 82%,#000);
 }
 a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
+footer a{text-decoration:underline;text-underline-offset:3px}
 .icon-defs{position:absolute;width:0;height:0;overflow:hidden}
 .hero-market-line svg,.course-box span svg,.market-flow svg,.included-panel svg{width:18px;height:18px;fill:currentColor}
 .shell{width:min(var(--shell),calc(100% - 64px));margin:0 auto}
@@ -70,7 +71,7 @@ img{display:block;max-width:100%}
 .hero-media{position:absolute;inset:0;background-image:
   linear-gradient(90deg,#030303 0%,rgba(3,3,3,.94) 28%,rgba(3,3,3,.58) 58%,rgba(3,3,3,.86) 100%),
   linear-gradient(180deg,rgba(3,3,3,.05),#030303 96%),
-  url("assets/proof/evento-hero.jpg");
+  url("assets/optimized/evento-hero-1600.webp");
   background-position:center,center,center bottom;
   background-size:auto,auto,auto 158%;
   background-repeat:no-repeat;
@@ -286,6 +287,7 @@ footer a{color:var(--gold2)}
 
 .reveal{opacity:0;transform:translateY(22px);filter:blur(7px);transition:opacity .72s ease,transform .72s ease,filter .72s ease;transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform,filter}
 .reveal.in{opacity:1;transform:none;filter:none}
+.hero .reveal{opacity:1;transform:none;filter:none;transition:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;filter:none;transition:none}
@@ -307,7 +309,7 @@ footer a{color:var(--gold2)}
   .hero-text{font-size:1rem}
   .hero-person{order:1;width:min(calc(100vw - 44px),430px);margin:0 auto -8px}
   .hero-person picture{display:block}
-  .hero-person img{content:url("assets/foto-mobile-hero.png?v=202605212332");width:112%;transform:translateX(-6%);max-height:620px}
+  .hero-person img{content:url("assets/optimized/foto-mobile-hero.webp");width:112%;transform:translateX(-6%);max-height:620px}
   .covers{margin-top:-62px;padding:86px 0 62px}
   .covers:before{inset:-260px 0 -88px;background:linear-gradient(180deg,transparent 0%,rgba(3,3,3,.18) 18%,rgba(3,3,3,.62) 42%,rgba(3,3,3,.9) 64%,#030303 82%,transparent 100%)}
   .cover-grid{grid-template-columns:1fr;gap:28px}

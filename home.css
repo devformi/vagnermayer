@@ -38,6 +38,7 @@ h1 em{display:block;color:var(--gold2);font-style:normal}
 .prelaunch-person{grid-area:person;position:relative;z-index:1;display:flex;align-items:end;justify-content:flex-end;min-height:650px;margin-left:-90px}
 .prelaunch-person:before{content:"";position:absolute;right:2%;bottom:12%;width:86%;height:76%;border-radius:50%;background:radial-gradient(ellipse at 50% 50%,rgba(213,178,101,.14),transparent 66%);filter:blur(28px)}
 .prelaunch-person img{position:relative;z-index:1;width:min(620px,48vw);max-width:none;filter:drop-shadow(0 34px 46px rgba(0,0,0,.82));mask-image:linear-gradient(180deg,#000 0%,#000 86%,transparent 99%)}
+.prelaunch-person img{height:auto}
 .feature-panel{grid-area:features;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:8px;border:1px solid rgba(213,178,101,.2);border-radius:var(--radius);background:linear-gradient(180deg,rgba(16,16,14,.84),rgba(7,7,6,.78));box-shadow:0 26px 70px rgba(0,0,0,.42);overflow:hidden}
 .feature-panel article{min-height:190px;padding:30px 24px;text-align:center;border-left:1px solid rgba(213,178,101,.14)}
 .feature-panel article:first-child{border-left:0}
@@ -74,13 +75,13 @@ button i{font-style:normal;font-size:2rem;line-height:1}
 }
 
 /* Final composition pass */
-.prelaunch{padding:34px 0 86px;min-height:100vh}
+.prelaunch{padding:34px 0 132px;min-height:100vh}
 .prelaunch-bg{
   background:
     linear-gradient(90deg,#030303 0%,rgba(3,3,3,.98) 36%,rgba(3,3,3,.74) 64%,#030303 100%),
     radial-gradient(circle at 74% 32%,rgba(213,178,101,.18),transparent 19rem),
     radial-gradient(circle at 88% 76%,rgba(213,178,101,.12),transparent 24rem),
-    url("assets/proof/evento-hero.jpg") center bottom/auto 150% no-repeat;
+    url("assets/optimized/evento-hero-1600.webp") center bottom/auto 150% no-repeat;
   filter:grayscale(1) contrast(1.08) brightness(.78);
 }
 .prelaunch-bg:before{opacity:.11;background-size:54px 54px}
@@ -97,6 +98,7 @@ button i{font-style:normal;font-size:2rem;line-height:1}
 .prelaunch-shell{
   width:min(1080px,calc(100% - 56px));
   grid-template-columns:minmax(0,540px) minmax(320px,1fr);
+  grid-template-areas:"hero person" "features features" "signup signup" "footer footer";
   gap:22px 42px;
   align-items:center;
 }
@@ -128,6 +130,11 @@ h1{max-width:600px;font-size:clamp(2.55rem,4.15vw,4.25rem);line-height:1.03;font
 .signup-panel > p{margin:14px auto 22px;font-size:1rem}
 form{gap:12px;max-width:780px}
 input{height:58px;font-size:1rem}
+.privacy-note{display:block;max-width:680px;margin:2px auto 0;color:rgba(241,234,223,.68);font-size:.82rem;line-height:1.45;text-align:center}
+.prelaunch-footer{grid-area:footer;margin-top:20px;color:rgba(241,234,223,.72);font-size:.92rem;line-height:1.45;text-align:center}
+.prelaunch-footer p{margin:0}
+.prelaunch-footer a{color:var(--gold2);font-weight:600;text-decoration:none}
+.prelaunch-footer a:hover{text-decoration:underline}
 .form-status{min-height:22px;margin:0;color:var(--gold2);font-size:.94rem;line-height:1.35;text-align:left}
 .form-status:empty{display:none}
 .form-status[data-state="error"]{color:#ffb4a8}
@@ -149,6 +156,7 @@ button:disabled{cursor:wait;opacity:.78;transform:none}
   .prelaunch-person img{width:min(92vw,430px);transform:translateX(12px)}
   .feature-panel{margin-top:18px}
   .signup-panel{padding:28px 18px}
+  .prelaunch-footer{margin-top:24px}
   .lead-modal__panel{padding:34px 24px}
   .lead-modal h2{font-size:1.65rem}
 }

@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pré-inscrição | Acervo Institucional</title>
     <meta name="description" content="Faça sua pré-inscrição para ser avisado em primeira mão quando o Acervo Institucional for lançado." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vagnermayer.academy/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pré-inscrição | Acervo Institucional" />
+    <meta property="og:description" content="Faça sua pré-inscrição e seja avisado primeiro sobre o lançamento do Acervo Institucional." />
+    <meta property="og:url" content="https://vagnermayer.academy/" />
+    <meta property="og:image" content="https://vagnermayer.academy/assets/optimized/evento-hero-1600.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="Favicon - Branco.png" />
-    <link rel="stylesheet" href="home.css?v=202606112010" />
+    <link rel="preload" as="image" href="assets/optimized/foto-vagner-home-640.webp" fetchpriority="high" />
+    <link rel="stylesheet" href="home.css?v=202606120320" />
   </head>
   <body>
     <main class="prelaunch">
@@ -16,7 +25,7 @@
           <div class="brand-lockup">
             <span class="status">Em breve</span>
             <span class="prelaunch-logo-wrap">
-              <img class="prelaunch-logo" src="ACERVO lOGO Branco.png" alt="Acervo Institucional" />
+              <img class="prelaunch-logo" src="assets/optimized/acervo-logo-branco-500.webp" alt="Acervo Institucional" width="500" height="108" />
             </span>
           </div>
           <h1>O Acervo Institucional <em>está chegando.</em></h1>
@@ -27,7 +36,10 @@
         </div>
 
         <div class="prelaunch-person" aria-hidden="true">
-          <img src="Foto Vagner.png" alt="" />
+          <picture>
+            <source srcset="assets/optimized/foto-vagner-home-480.webp 480w, assets/optimized/foto-vagner-home-640.webp 640w" sizes="(max-width: 980px) 92vw, 42vw" type="image/webp" />
+            <img src="assets/optimized/foto-vagner-home-640.webp" alt="" width="640" height="912" fetchpriority="high" />
+          </picture>
         </div>
 
         <section class="feature-panel" aria-label="Benefícios do Acervo Institucional">
@@ -86,8 +98,15 @@
             </label>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             <button type="submit">Quero prioridade de acesso <i>→</i></button>
+            <small class="privacy-note">
+              Ao enviar seus dados, você concorda em receber comunicações sobre o Acervo Institucional.
+              Seus dados serão tratados conforme a LGPD e não serão compartilhados indevidamente.
+            </small>
           </form>
         </section>
+        <footer class="prelaunch-footer">
+          <p>Copyright © 2026 Acervo Institucional. Feito com amor por <a href="https://oformi.com.br/">Formi</a>.</p>
+        </footer>
       </section>
     </main>
     <div class="lead-modal" id="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" hidden>

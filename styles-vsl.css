@@ -14,7 +14,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font-weight:400;overflow-x:hidden}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .vsl-page{position:relative;overflow:hidden;background:
   radial-gradient(circle at 16% 10%,rgba(213,178,101,.13),transparent 26rem),
@@ -32,11 +32,11 @@ h1{max-width:900px;margin:0 auto;color:#fff;font-size:clamp(2.2rem,4.4vw,4.55rem
 .lead{max-width:760px;margin:20px auto 0;color:var(--muted);font-size:1.1rem;line-height:1.6}
 .video-frame{position:relative;width:min(960px,100%);aspect-ratio:16/9;margin:38px auto 24px;padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(23,21,17,.9),rgba(8,8,7,.9));box-shadow:0 34px 90px rgba(0,0,0,.48);overflow:hidden}
 .video-frame iframe{display:block;width:100%;height:100%;border:0;border-radius:calc(var(--radius) - 3px);background:#000}
-.sound-gate{position:absolute;left:50%;top:50%;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;width:min(390px,72%);min-height:176px;padding:22px 26px;border:1px solid rgba(255,255,255,.58);border-radius:8px;background:#c94a2f;color:#fff;cursor:pointer;text-align:center;box-shadow:0 18px 48px rgba(0,0,0,.34);opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-50%) rotate(-2deg);transition:opacity .22s ease,visibility .22s ease,transform .22s ease}
-.sound-gate svg{width:82px;height:82px;margin:6px 0 8px;fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.sound-gate{position:absolute;left:50%;top:50%;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;width:min(275px,58%);min-height:124px;padding:15px 18px;border:1px solid rgba(255,255,255,.58);border-radius:8px;background:#c94a2f;color:#fff;cursor:pointer;text-align:center;box-shadow:0 18px 48px rgba(0,0,0,.34);opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-50%) rotate(-2deg);transition:opacity .22s ease,visibility .22s ease,transform .22s ease}
+.sound-gate svg{width:58px;height:58px;margin:4px 0 6px;fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
 .sound-gate span,.sound-gate strong{display:block;color:#fff;font-weight:700;line-height:1.12;letter-spacing:0}
-.sound-gate span{font-size:clamp(1.1rem,2vw,1.55rem)}
-.sound-gate strong{font-size:clamp(1rem,1.8vw,1.35rem)}
+.sound-gate span{font-size:clamp(.88rem,1.45vw,1.08rem)}
+.sound-gate strong{font-size:clamp(.8rem,1.3vw,.95rem)}
 .video-frame.is-playing-muted:not(.is-sound-enabled) .sound-gate{opacity:1;visibility:visible;pointer-events:auto;animation:soundGatePulse 1.8s ease-in-out infinite}
 .video-frame.is-playing-muted:not(.is-sound-enabled) .sound-gate:hover{animation-play-state:paused;transform:translate(-50%,-50%) rotate(-2deg) scale(1.04)}
 @keyframes soundGatePulse{
@@ -72,6 +72,6 @@ h1{max-width:900px;margin:0 auto;color:#fff;font-size:clamp(2.2rem,4.4vw,4.55rem
   .course-summary img{width:78px}
   .offer-box{padding:26px}
   .proof-grid{columns:1}
-  .sound-gate{width:min(320px,78%);min-height:146px;padding:18px 20px}
-  .sound-gate svg{width:62px;height:62px}
+  .sound-gate{width:min(230px,62%);min-height:104px;padding:13px 14px}
+  .sound-gate svg{width:44px;height:44px}
 }
