@@ -15,7 +15,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden}
-button,input{font:inherit}
+button,input,select{font:inherit}
 a{color:inherit}
 .capture-page{min-height:100svh;background:#020303}
 .capture-section{position:relative;min-height:100svh;display:grid;place-items:center;padding:34px 0;overflow:hidden}
@@ -50,9 +50,19 @@ h1{max-width:720px;margin:0;color:#fff;font-size:clamp(2.55rem,5vw,5.4rem);line-
 .form-card p{margin:12px 0 20px;color:var(--muted);font-size:.98rem;line-height:1.55}
 .lead-form{display:grid;gap:12px}
 .field span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.field input{width:100%;height:56px;padding:0 17px;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);background:rgba(255,255,255,.055);color:#fff;outline:none}
+.field input,.field select{width:100%;height:56px;padding:0 17px;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);background:rgba(255,255,255,.055);color:#fff;outline:none}
+.field select{
+  padding-right:32px;
+  appearance:none;
+  background:
+    linear-gradient(45deg,transparent 50%,color-mix(in srgb,var(--accent-2) 80%,white 20%) 50%) calc(100% - 18px) 23px/7px 7px no-repeat,
+    rgba(255,255,255,.055);
+}
+.field select option{background:#111;color:#fff}
 .field input::placeholder{color:rgba(245,241,235,.52)}
-.field input:focus{border-color:color-mix(in srgb,var(--accent) 76%,white 12%);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
+.field input:focus,.field select:focus{border-color:color-mix(in srgb,var(--accent) 76%,white 12%);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent)}
+.phone-row{display:grid;grid-template-columns:minmax(120px,150px) minmax(0,1fr);gap:10px}
+.country-field,.phone-field{min-width:0}
 .consent{display:flex;gap:10px;align-items:flex-start;margin:2px 0 0;color:rgba(246,243,238,.78);font-size:.84rem;line-height:1.35}
 .consent input{width:17px;height:17px;margin:2px 0 0;accent-color:var(--accent);flex:0 0 auto}
 .form-status{min-height:19px;margin:0;color:var(--accent-2);font-size:.86rem;line-height:1.35}
@@ -87,4 +97,6 @@ h1{max-width:720px;margin:0;color:#fff;font-size:clamp(2.55rem,5vw,5.4rem);line-
   .pill{min-height:auto}
   .form-card{margin-top:24px;padding:22px 16px}
   .form-card h2{font-size:1.2rem}
+  .phone-row{grid-template-columns:minmax(102px,116px) minmax(0,1fr);gap:8px}
+  .field select{padding:0 24px 0 10px;font-size:.92rem;background-position:calc(100% - 12px) 23px,0 0}
 }

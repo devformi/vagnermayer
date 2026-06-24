@@ -26,7 +26,10 @@
           <p>Acompanhe o lançamento de perto e seja avisado quando abrir.</p>
           <form class="lead-form" data-capture-form>
             <label class="field"><span>Nome</span><input type="text" name="nome" placeholder="Seu nome" autocomplete="name" required /></label>
-            <label class="field"><span>Telefone</span><input type="tel" name="whatsapp" placeholder="Seu telefone" autocomplete="tel" inputmode="tel" required /></label>
+            <div class="phone-row">
+              <label class="field country-field"><span>País</span><select name="pais" autocomplete="country" aria-label="País do telefone"><option value="BR" selected>BR +55</option></select></label>
+              <label class="field phone-field"><span>Telefone</span><input type="tel" name="whatsapp" placeholder="Seu telefone" autocomplete="tel-national" inputmode="tel" required /></label>
+            </div>
             <label class="field"><span>E-mail</span><input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required /></label>
             <label class="consent"><input type="checkbox" required /> <span>Autorizo que a equipe entre em contato comigo sobre esta lista de espera.</span></label>
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
