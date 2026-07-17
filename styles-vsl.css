@@ -46,12 +46,12 @@ h1{max-width:900px;margin:0 auto;color:#fff;font-size:clamp(2.2rem,4.4vw,4.55rem
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 30px;border-radius:var(--radius);font-size:1rem;font-weight:700;transition:transform .22s ease,box-shadow .22s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#080807;box-shadow:0 18px 48px rgba(213,178,101,.18)}
-.course-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:48px auto 0;text-align:left}
-.course-summary article{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center;min-height:150px;padding:18px;border:1px solid rgba(213,178,101,.15);border-radius:var(--radius);background:linear-gradient(180deg,rgba(16,16,15,.78),rgba(7,7,6,.72));box-shadow:0 20px 60px rgba(0,0,0,.26)}
-.course-summary img{width:90px;filter:drop-shadow(0 16px 22px rgba(0,0,0,.42))}
+.course-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:48px auto 0;text-align:left}
+.course-summary article{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:center;min-height:126px;padding:16px;border:1px solid rgba(213,178,101,.15);border-radius:var(--radius);background:linear-gradient(180deg,rgba(16,16,15,.78),rgba(7,7,6,.72));box-shadow:0 20px 60px rgba(0,0,0,.26)}
+.course-summary img{width:76px;height:76px;border-radius:14px;object-fit:cover;filter:drop-shadow(0 16px 22px rgba(0,0,0,.42))}
 .course-summary h2{margin:0 0 6px;color:#fff;font-size:1.1rem;font-weight:700}
 .course-summary p{margin:0;color:var(--muted);font-size:.94rem;line-height:1.45}
-.vsl-proof{padding:86px 0;background:linear-gradient(180deg,transparent,rgba(213,178,101,.035),transparent)}
+.vsl-proof{padding:76px 0;background:linear-gradient(180deg,transparent,rgba(213,178,101,.035),transparent)}
 .vsl-proof h2{max-width:780px;margin:0 0 32px;color:#fff;font-size:clamp(1.8rem,2.8vw,3rem);line-height:1.08;font-weight:700;text-wrap:balance}
 .proof-grid{columns:3 260px;column-gap:16px}
 .proof-grid img{width:100%;margin:0 0 16px;border-radius:var(--radius);box-shadow:0 18px 50px rgba(0,0,0,.28);break-inside:avoid}
@@ -59,18 +59,25 @@ h1{max-width:900px;margin:0 auto;color:#fff;font-size:clamp(2.2rem,4.4vw,4.55rem
 .offer-box{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,420px);gap:42px;align-items:center;padding:40px;border:1px solid rgba(213,178,101,.2);border-radius:var(--radius);background:linear-gradient(135deg,rgba(23,21,17,.86),rgba(7,7,6,.78));box-shadow:0 28px 80px rgba(0,0,0,.34)}
 .offer-box h2{max-width:620px;margin:0 0 16px;color:#fff;font-size:clamp(1.9rem,3vw,3.05rem);line-height:1.08;font-weight:700}
 .offer-box p{max-width:640px;margin:0;color:var(--muted);font-size:1.02rem;line-height:1.58}
-.price-card{padding:30px;border:1px solid rgba(213,178,101,.18);border-radius:var(--radius);background:rgba(4,4,4,.48);text-align:center}
+.price-card{padding:0;border:0;border-radius:0;background:transparent;text-align:center}
 .price-card span,.price-card small{display:block;color:var(--accent2)}
 .price-card strong{display:block;margin:12px 0 8px;color:var(--accent2);font-size:clamp(2.1rem,3.6vw,3.5rem);line-height:1;font-weight:700}
 .price-card p{margin:0 0 22px;color:var(--muted)}
 .price-card .btn{width:100%;margin-bottom:18px}
 @media(max-width:860px){
-  .vsl-hero{padding-top:34px}
+  .vsl-hero{padding:34px 0 42px;text-align:left}
   .brand{width:190px}
+  .brand,h1,.lead{margin-left:0;margin-right:0}
+  h1{font-size:clamp(2rem,10vw,3.05rem)}
+  .lead{font-size:1rem}
   .course-summary,.offer-box{grid-template-columns:1fr}
   .course-summary article{grid-template-columns:78px 1fr}
   .course-summary img{width:78px}
-  .offer-box{padding:26px}
+  .vsl-proof{padding:42px 0 34px}
+  .vsl-proof h2{margin-bottom:22px}
+  .offer-box{padding:24px;gap:24px}
+  .price-card{text-align:left}
+  .price-card strong{white-space:nowrap;font-size:clamp(2rem,11vw,3rem)}
   .proof-grid{columns:1}
   .sound-gate{width:min(230px,62%);min-height:104px;padding:13px 14px}
   .sound-gate svg{width:44px;height:44px}

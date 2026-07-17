@@ -333,6 +333,7 @@ footer:before{content:"";position:absolute;left:50%;top:0;width:100vw;height:1px
 footer img{width:150px}
 footer p{margin:0;color:var(--muted);font-size:.9rem}
 footer a{color:var(--gold2)}
+.footer-mobile-break{display:none}
 .socials{display:flex;gap:10px}
 .socials a{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(46,154,160,.22);border-radius:50%}
 .socials svg{width:18px;height:18px;fill:#fff}
@@ -461,7 +462,7 @@ footer a{color:var(--gold2)}
   .module-trigger img{width:58px;height:58px;border-radius:14px}
   .module-trigger small{display:none}
   .module-body-inner{grid-template-columns:1fr;gap:18px}
-  .module-cover img{max-width:260px;margin:0 auto}
+  .module-cover{display:none}
   .lesson-list,.bonus-panel .lesson-list{grid-template-columns:1fr}
   .bonus-panel .module-trigger{grid-template-columns:78px minmax(70px,88px) minmax(0,1fr) 28px}
   .bonus-panel .module-trigger img{width:78px;height:46px}
@@ -488,6 +489,7 @@ footer a{color:var(--gold2)}
   .video-card.is-next{transform:translate(calc(-50% + 34px),calc(-50% + 18px)) scale(.9) rotate(2deg)}
   .video-card.is-prev{transform:translate(calc(-50% - 30px),calc(-50% + 34px)) scale(.84) rotate(-2deg)}
   footer{width:calc(100% - 32px);flex-direction:column;text-align:center}
+  .footer-mobile-break{display:block}
   .checkout-shell{grid-template-columns:1fr;overflow:auto}
   .checkout-hero{min-height:340px}
   .checkout-triggers{grid-template-columns:1fr}
