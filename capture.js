@@ -147,6 +147,7 @@ form?.addEventListener("submit", async (event) => {
     submitButton.textContent = submitLabel;
     statusEl.textContent = "";
     statusEl.dataset.state = "";
+    window.dispatchEvent(new CustomEvent("leadSubmitted", { detail: payload }));
     modal.hidden = false;
   } catch (error) {
     submitButton.disabled = false;

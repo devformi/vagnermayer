@@ -150,6 +150,7 @@ select option{background:#11100e;color:#fff}
 .privacy-note{display:block;max-width:680px;margin:2px auto 0;color:rgba(241,234,223,.68);font-size:.82rem;line-height:1.45;text-align:center}
 .prelaunch-footer{grid-area:footer;margin-top:20px;color:rgba(241,234,223,.72);font-size:.92rem;line-height:1.45;text-align:center}
 .prelaunch-footer p{margin:0}
+.prelaunch-footer .company-legal{margin-bottom:6px;color:rgba(241,234,223,.56);font-size:.78rem;letter-spacing:.02em}
 .prelaunch-footer a{color:var(--gold2);font-weight:600;text-decoration:none}
 .prelaunch-footer a:hover{text-decoration:underline}
 .footer-mobile-break{display:none}

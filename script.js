@@ -72,3 +72,23 @@ window.moveVideoTestimonial = (button, direction) => {
   const moveVideoCards = videoCarousels.get(carousel);
   if (moveVideoCards) moveVideoCards(direction);
 };
+
+document.querySelectorAll("[data-module-accordion]").forEach(accordion => {
+  const panels = Array.from(accordion.querySelectorAll(".module-panel"));
+
+  function setPanel(panel, open) {
+    panel.classList.toggle("is-open", open);
+    const trigger = panel.querySelector(".module-trigger");
+    if (trigger) trigger.setAttribute("aria-expanded", String(open));
+  }
+
+  panels.forEach((panel, index) => {
+    const trigger = panel.querySelector(".module-trigger");
+    if (!trigger) return;
+    setPanel(panel, panel.classList.contains("is-open"));
+    trigger.addEventListener("click", () => {
+      const willOpen = !panel.classList.contains("is-open");
+      panels.forEach(item => setPanel(item, item === panel ? willOpen : false));
+    });
+  });
+});

@@ -1,6 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/acervo-institucional",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "destination": "/acervo-institucional",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
