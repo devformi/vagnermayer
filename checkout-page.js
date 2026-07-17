@@ -1,5 +1,3 @@
-const HOTMART_OFFER_CODE = "dvq3p234";
-const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/N106233144K?off=dvq3p234";
 let checkoutAudioContext;
 let checkoutAudioEnabled = false;
 let pendingCheckoutTone = null;
@@ -51,6 +49,7 @@ function playCheckoutTone(type = "toast") {
 function mountInlineCheckout() {
   const target = document.querySelector("#hotmart-inline-checkout");
   const fallback = document.querySelector(".checkout-direct-link");
+  const offer = window.AcervoOffer || {};
   if (!target) return;
 
   const mount = () => {
@@ -61,11 +60,11 @@ function mountInlineCheckout() {
     }
 
     try {
+      const options = { locale: "pt_BR" };
+      if (offer.offerCode) options.offer = offer.offerCode;
+
       window.checkoutElements
-        .init("inlineCheckout", {
-          offer: HOTMART_OFFER_CODE,
-          locale: "pt_BR"
-        })
+        .init("inlineCheckout", options)
         .mount("#hotmart-inline-checkout");
     } catch (error) {
       target.innerHTML = '<div class="checkout-loading">Não foi possível carregar o checkout embutido agora.</div>';
