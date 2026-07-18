@@ -60,6 +60,22 @@ function mountInlineCheckout() {
     }
 
     try {
+      if (!offer.offerCode && offer.checkoutUrl) {
+        target.innerHTML = "";
+        const iframe = document.createElement("iframe");
+        iframe.className = "custom-element__iframe";
+        iframe.title = "Checkout Acervo Institucional";
+        iframe.src = offer.checkoutUrl;
+        iframe.allow = "clipboard-write; payment *";
+        iframe.style.width = "100%";
+        iframe.style.minWidth = "320px";
+        iframe.style.minHeight = "640px";
+        iframe.style.border = "0";
+        iframe.style.display = "block";
+        target.appendChild(iframe);
+        return;
+      }
+
       const options = { locale: "pt_BR" };
       if (offer.offerCode) options.offer = offer.offerCode;
 
